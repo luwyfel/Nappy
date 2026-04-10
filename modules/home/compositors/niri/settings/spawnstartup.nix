@@ -1,0 +1,3 @@
+[
+  { command = ["noctalia-shell"]; }
+]

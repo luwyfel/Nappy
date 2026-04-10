@@ -1,0 +1,3 @@
+{ importDir, ... }:
+{ imports = (importDir ./.) ++ [ ./starship ]; }
+

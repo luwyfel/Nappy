@@ -1,0 +1,42 @@
+{
+  barType = "floating";
+  floating = true;
+  position = "top";
+  monitors = [];
+  density = "compact";
+  showOutline = false;
+  showCapsule = false;
+  capsuleOpacity = 1;
+  capsuleColorKey = "none";
+  widgetSpacing = 4;
+  contentPadding = 7;
+  fontScale = 1;
+  enableExclusionZoneInset = true;
+  backgroundOpacity = 0;
+  useSeparateOpacity = false;
+  marginVertical = 6;
+  marginHorizontal = 6;
+  frameThickness = 8;
+  frameRadius = 12;
+  outerCorners = true;
+  hideOnOverview = false;
+  displayMode = "always_visible";
+  autoHideDelay = 500;
+  autoShowDelay = 150;
+  showOnWorkspaceSwitch = true;
+  widgets = {
+    left = import ./left.nix;
+    center = import ./center.nix; 
+    right = import ./right.nix;
+  };
+  mouseWheelAction = "none";
+  reverseScroll = false;
+  mouseWheelWrap = true;
+  middleClickAction = "none";
+  middleClickFollowMouse = false;
+  middleClickCommand = "";
+  rightClickAction = "controlCenter";
+  rightClickFollowMouse = true;
+  rightClickCommand = "";
+  screenOverrides = [];
+}
