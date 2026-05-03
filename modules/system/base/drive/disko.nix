@@ -2,75 +2,70 @@
 {
   disko.devices = {
     disk = {
-      diskhome = {
+      main = {
         type = "disk";
         device = "/dev/disk/by-id/nvme-INTEL_SSDPEKNU512GZ_PHKA318202DY512A";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-			        priority = 1;
-			        name = "ESP";
-			        start = "1M";
-              end = "1985M";
+			  priority = 1;
+			  name = "ESP";
+              size = "1985M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-				        mountOptions = [ "umask=0077" ];
+				mountOptions = [ "umask=0077" ];
               };
             };
-            root = {
-              size = "100%";
+			root = {
+              size = "78786M";
               content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-				        mountpoint = "/";
-                subvolumes = {
-                  "@" = {
-                    mountpoint = "/";
-                    mountOptions = [ "compress=zstd" "noatime" ];
-                  };
-                  "@nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = [ "compress=zstd" "noatime" ];
-                  };
-		  		        "@swap" = {
-                    mountpoint = "/.swap";
-                    mountOptions = [ "nodatacow" ];
-                  };
-		  		        "@home" = {
-                    mountpoint = "/home";
-                    mountOptions = [ "compress=zstd" "noatime" ];
-                  };
-                  "@games" = {
-                    mountpoint = "/games/local";
-                    mountOptions = [ "nodatacow" "noatime" ];
-                  };
-                };
+                type = "filesystem";
+                format = "ext4";
+				extraArgs = [ "-f" ];
+                mountpoint = "/";
+                mountOptions = [ "defaults" "noatime" ];
+              };
+            };
+            home = {
+              size = "102400M";
+              content = {
+                type = "filesystem";
+                format = "xfs";
+				extraArgs = [ "-f" ];
+                mountpoint = "/home";
+                mountOptions = [ "defaults" "noatime" ];
+              };
+            };
+            inside = {
+              size = "307200M";
+              content = {
+                type = "filesystem";
+                format = "xfs";
+				extraArgs = [ "-f" ];
+                mountpoint = "/game";
+                mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
           };
         };
       };
-      diskgames = {
+      games = {
         type = "disk";
         device = "/dev/disk/by-id/nvme-ADATA_LEGEND_710_2N332LQ2A6UU";
         content = {
           type = "gpt";
           partitions = {
-            games = {
+            outside = {
               size = "100%";
               content = {
-                type = "btrfs";
+                type = "xfs";
                 extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@games" = {
-                    mountpoint = "/games/external";
-                    mountOptions = [ "nodatacow" "noatime" "nofail" "x-gvfs-show" ];
-                  };
-                };
+                mountpoint = "/games/external";
+                mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
           };
