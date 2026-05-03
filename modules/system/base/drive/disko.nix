@@ -2,7 +2,7 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      maindrive = {
         type = "disk";
         device = "/dev/disk/by-id/nvme-INTEL_SSDPEKNU512GZ_PHKA318202DY512A";
         content = {
@@ -17,7 +17,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-				mountOptions = [ "umask=0077" ];
+				mountOptions = [ "fmask=0077" "dmask=0077"];
               };
             };
 			root = {
@@ -45,14 +45,14 @@
                 type = "filesystem";
                 format = "xfs";
 				extraArgs = [ "-f" ];
-                mountpoint = "/games/";
+                mountpoint = "/games/Inside";
                 mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
           };
         };
       };
-      games = {
+      gamesdrive = {
         type = "disk";
         device = "/dev/disk/by-id/nvme-ADATA_LEGEND_710_2N332LQ2A6UU";
         content = {
@@ -64,7 +64,7 @@
                 type = "filesystem";
                 format = "xfs";
                 extraArgs = [ "-f" ];
-                mountpoint = "/games/external";
+                mountpoint = "/games/Outside";
                 mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
