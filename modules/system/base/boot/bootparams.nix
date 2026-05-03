@@ -4,7 +4,7 @@
     consoleLogLevel = 0;
     initrd = {
       verbose = true;
-      supportedFilesystems = ["btrfs"];
+      supportedFilesystems = ["xfs"];
     };
     tmp.cleanOnBoot = true;
     kernel.sysctl = {
