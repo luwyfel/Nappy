@@ -25,6 +25,7 @@
               content = {
                 type = "filesystem";
                 format = "ext4";
+                extraArgs = [ "-F" ];
                 mountpoint = "/";
                 mountOptions = [ "defaults" "noatime" ];
               };
