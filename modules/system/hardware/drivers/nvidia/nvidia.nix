@@ -15,7 +15,7 @@
     };
     powerManagement = {
       enable = true;
-      finegrained = true;
+      finegrained = false;
     };
   };
 }
