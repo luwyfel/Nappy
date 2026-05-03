@@ -62,7 +62,8 @@
             outside = {
               size = "100%";
               content = {
-                type = "xfs";
+                type = "filesystem";
+                format = "xfs";
                 extraArgs = [ "-f" ];
                 mountpoint = "/games/external";
                 mountOptions = [ "defaults" "noatime" "nofail" ];
