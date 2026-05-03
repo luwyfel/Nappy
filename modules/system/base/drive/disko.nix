@@ -45,7 +45,7 @@
                 type = "filesystem";
                 format = "xfs";
 				extraArgs = [ "-f" ];
-                mountpoint = "/game";
+                mountpoint = "/games/";
                 mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
