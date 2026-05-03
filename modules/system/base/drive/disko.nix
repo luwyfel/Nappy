@@ -45,7 +45,7 @@
                 type = "filesystem";
                 format = "xfs";
 				extraArgs = [ "-f" ];
-                mountpoint = "/games/Inside";
+                mountpoint = "/games/Internal";
                 mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
@@ -64,7 +64,7 @@
                 type = "filesystem";
                 format = "xfs";
                 extraArgs = [ "-f" ];
-                mountpoint = "/games/Outside";
+                mountpoint = "/games/External";
                 mountOptions = [ "defaults" "noatime" "nofail" ];
               };
             };
