@@ -21,17 +21,16 @@
               };
             };
 			root = {
-              size = "76801M";
+              size = "128001M";
               content = {
                 type = "filesystem";
                 format = "ext4";
-                extraArgs = [ "-F" ];
                 mountpoint = "/";
                 mountOptions = [ "defaults" "noatime" ];
               };
             };
             home = {
-              size = "102400M";
+              size = "51200M";
               content = {
                 type = "filesystem";
                 format = "xfs";
