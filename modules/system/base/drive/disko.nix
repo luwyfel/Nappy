@@ -11,7 +11,7 @@
             ESP = {
 			  priority = 1;
 			  name = "ESP";
-              size = "1985M";
+              size = "1986M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -21,21 +21,12 @@
               };
             };
 			root = {
-              size = "128001M";
+              size = "179200M";
               content = {
                 type = "filesystem";
                 format = "ext4";
+  extraArgs = [ "-F" ];
                 mountpoint = "/";
-                mountOptions = [ "defaults" "noatime" ];
-              };
-            };
-            home = {
-              size = "51200M";
-              content = {
-                type = "filesystem";
-                format = "xfs";
-				extraArgs = [ "-f" ];
-                mountpoint = "/home";
                 mountOptions = [ "defaults" "noatime" ];
               };
             };
